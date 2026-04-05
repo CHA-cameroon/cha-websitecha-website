@@ -5,3 +5,172 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Community Health Association Cameroon</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root { --green:#1a6b3c; --green-light:#2d9d5c; --gold:#c9a227; --gold-light:#e8c04a; --dark:#0f2d1f; --white:#ffffff; --gray:#f5f5f5; --text:#333333; }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Open Sans',sans-serif; color:var(--text); }
+    nav { position:fixed; top:0; width:100%; z-index:1000; background:rgba(15,45,31,0.95); backdrop-filter:blur(8px); display:flex; align-items:center; justify-content:space-between; padding:14px 40px; }
+    .nav-logo span { color:var(--white); font-family:'Montserrat',sans-serif; font-weight:700; font-size:1.1rem; }
+    .nav-links { display:flex; gap:28px; list-style:none; }
+    .nav-links a { color:rgba(255,255,255,0.85); text-decoration:none; font-size:0.9rem; font-weight:500; transition:color 0.2s; }
+    .nav-links a:hover { color:var(--gold-light); }
+    .hero { min-height:100vh; background:linear-gradient(135deg,rgba(15,45,31,0.88) 0%,rgba(26,107,60,0.75) 60%,rgba(201,162,39,0.4) 100%), url('images/maternal_health_team.jpg') center/cover no-repeat; display:flex; align-items:center; justify-content:center; text-align:center; padding:120px 20px 80px; }
+    .hero-content { max-width:800px; }
+    .hero-badge { display:inline-block; background:var(--gold); color:var(--dark); font-family:'Montserrat',sans-serif; font-weight:700; font-size:0.75rem; letter-spacing:2px; text-transform:uppercase; padding:6px 18px; border-radius:20px; margin-bottom:24px; }
+    .hero h1 { font-family:'Montserrat',sans-serif; font-weight:800; font-size:clamp(2.2rem,5vw,3.8rem); color:var(--white); line-height:1.15; margin-bottom:20px; }
+    .hero h1 span { color:var(--gold-light); }
+    .hero p { font-size:1.1rem; color:rgba(255,255,255,0.88); line-height:1.7; margin-bottom:36px; }
+    .hero-btns { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
+    .btn-primary { background:var(--gold); color:var(--dark); padding:14px 32px; border-radius:4px; font-weight:700; font-family:'Montserrat',sans-serif; text-decoration:none; font-size:0.9rem; transition:background 0.2s,transform 0.2s; }
+    .btn-primary:hover { background:var(--gold-light); transform:translateY(-2px); }
+    .btn-outline { border:2px solid rgba(255,255,255,0.7); color:var(--white); padding:14px 32px; border-radius:4px; font-weight:600; text-decoration:none; font-size:0.9rem; transition:border-color 0.2s,background 0.2s; }
+    .btn-outline:hover { border-color:var(--gold-light); background:rgba(255,255,255,0.08); }
+    .stats { background:var(--green); padding:48px 40px; display:flex; justify-content:center; gap:60px; flex-wrap:wrap; }
+    .stat { text-align:center; color:var(--white); }
+    .stat-number { font-family:'Montserrat',sans-serif; font-weight:800; font-size:2.4rem; color:var(--gold-light); }
+    .stat-label { font-size:0.85rem; opacity:0.85; margin-top:4px; }
+    section { padding:80px 40px; }
+    .section-header { text-align:center; margin-bottom:56px; }
+    .section-tag { display:inline-block; background:rgba(26,107,60,0.1); color:var(--green); font-size:0.75rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; padding:5px 14px; border-radius:20px; margin-bottom:12px; }
+    .section-header h2 { font-family:'Montserrat',sans-serif; font-weight:800; font-size:clamp(1.8rem,3.5vw,2.6rem); color:var(--dark); margin-bottom:14px; }
+    .section-header p { color:#666; max-width:600px; margin:0 auto; line-height:1.7; }
+    .divider { width:60px; height:4px; background:var(--gold); margin:16px auto 0; border-radius:2px; }
+    .about { background:var(--gray); }
+    .about-grid { display:grid; grid-template-columns:1fr 1fr; gap:60px; max-width:1100px; margin:0 auto; align-items:center; }
+    .about-text h3 { font-family:'Montserrat',sans-serif; font-weight:700; font-size:1.5rem; color:var(--dark); margin-bottom:16px; }
+    .about-text p { color:#555; line-height:1.8; margin-bottom:14px; }
+    .about-img { border-radius:12px; overflow:hidden; box-shadow:0 12px 40px rgba(0,0,0,0.15); }
+    .about-img img { width:100%; height:380px; object-fit:cover; }
+    .projects { background:var(--white); }
+    .projects-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:32px; max-width:1100px; margin:0 auto; }
+    .project-card { border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08); transition:transform 0.3s,box-shadow 0.3s; }
+    .project-card:hover { transform:translateY(-6px); box-shadow:0 12px 40px rgba(0,0,0,0.15); }
+    .project-card img { width:100%; height:240px; object-fit:cover; }
+    .project-body { padding:24px; }
+    .project-tag { display:inline-block; background:rgba(26,107,60,0.1); color:var(--green); font-size:0.72rem; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; padding:4px 12px; border-radius:20px; margin-bottom:10px; }
+    .project-body h3 { font-family:'Montserrat',sans-serif; font-weight:700; font-size:1.15rem; color:var(--dark); margin-bottom:10px; }
+    .project-body p { color:#666; font-size:0.9rem; line-height:1.7; }
+    .project-meta { margin-top:16px; display:flex; align-items:center; gap:8px; color:var(--green); font-size:0.82rem; font-weight:600; }
+    .team { background:var(--gray); }
+    .team-grid { display:flex; justify-content:center; gap:40px; flex-wrap:wrap; max-width:1100px; margin:0 auto; }
+    .team-card { background:var(--white); border-radius:16px; padding:36px 28px; text-align:center; width:280px; box-shadow:0 4px 20px rgba(0,0,0,0.08); transition:transform 0.3s; }
+    .team-card:hover { transform:translateY(-6px); }
+    .team-photo { width:140px; height:140px; border-radius:50%; object-fit:cover; border:4px solid var(--gold); margin:0 auto 20px; display:block; }
+    .team-card h3 { font-family:'Montserrat',sans-serif; font-weight:700; font-size:1rem; color:var(--dark); margin-bottom:6px; }
+    .team-card .role { color:var(--green); font-size:0.82rem; font-weight:600; margin-bottom:12px; }
+    .team-card p { color:#777; font-size:0.85rem; line-height:1.6; }
+    .contact { background:var(--dark); text-align:center; }
+    .contact h2 { font-family:'Montserrat',sans-serif; font-weight:800; font-size:2rem; color:var(--white); margin-bottom:14px; }
+    .contact p { color:rgba(255,255,255,0.75); margin-bottom:32px; }
+    .contact-info { display:flex; justify-content:center; gap:40px; flex-wrap:wrap; margin-bottom:40px; }
+    .contact-item { color:rgba(255,255,255,0.85); font-size:0.9rem; }
+    .contact-item strong { color:var(--gold-light); display:block; font-size:0.75rem; letter-spacing:1px; text-transform:uppercase; margin-bottom:4px; }
+    footer { background:#060f09; text-align:center; padding:24px 40px; color:rgba(255,255,255,0.4); font-size:0.8rem; }
+    footer span { color:var(--gold); }
+    @media (max-width:768px) { nav { padding:12px 20px; } .nav-links { display:none; } section { padding:60px 20px; } .about-grid { grid-template-columns:1fr; } .stats { gap:30px; padding:40px 20px; } }
+  </style>
+</head>
+<body>
+<nav>
+  <div class="nav-logo"><span>CHA Cameroon</span></div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#team">Team</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">Community Health Association Cameroon</div>
+    <h1>Advancing <span>Community Health</span> Across Cameroon</h1>
+    <p>We strengthen health systems, empower communities, and deliver evidence-based health interventions to the most vulnerable populations in Cameroon.</p>
+    <div class="hero-btns">
+      <a href="#projects" class="btn-primary">Our Projects</a>
+      <a href="#contact" class="btn-outline">Get In Touch</a>
+    </div>
+  </div>
+</section>
+<div class="stats">
+  <div class="stat"><div class="stat-number">10+</div><div class="stat-label">Health Districts Reached</div></div>
+  <div class="stat"><div class="stat-number">50K+</div><div class="stat-label">Beneficiaries Served</div></div>
+  <div class="stat"><div class="stat-number">5+</div><div class="stat-label">Active Programs</div></div>
+  <div class="stat"><div class="stat-number">2019</div><div class="stat-label">Year Founded</div></div>
+</div>
+<section class="about" id="about">
+  <div class="section-header">
+    <span class="section-tag">Who We Are</span>
+    <h2>About CHA Cameroon</h2>
+    <div class="divider"></div>
+    <p>The Community Health Association (CHA) Cameroon is a non-profit organisation dedicated to improving health outcomes through community-driven programs, capacity building, and health education.</p>
+  </div>
+  <div class="about-grid">
+    <div class="about-text">
+      <h3>Our Mission</h3>
+      <p>To promote health equity by delivering community-centred health programs that address the most critical needs of underserved populations across Cameroon — from maternal and child health to nutrition, disease prevention, and emergency response.</p>
+      <p>We work at the intersection of grassroots community mobilisation and evidence-based public health practice, partnering with government health services, international organisations, and local communities.</p>
+      <p>Through initiatives like KwataStyleMedicine, we use culturally relevant communication — including Pidgin English health education — to reach communities where they are.</p>
+    </div>
+    <div class="about-img">
+      <img src="images/maternal_health_team.jpg" alt="CHA Cameroon team at a health outreach activity" />
+    </div>
+  </div>
+</section>
+<section class="projects" id="projects">
+  <div class="section-header">
+    <span class="section-tag">Our Work</span>
+    <h2>Past Projects</h2>
+    <div class="divider"></div>
+    <p>A selection of community health projects implemented in partnership with local health facilities, community leaders, and organisations across Cameroon.</p>
+  </div>
+  <div class="projects-grid">
+    <div class="project-card">
+      <img src="images/maternal_health_infographic.jpg" alt="Maternal Health Project Infographic" />
+      <div class="project-body">
+        <span class="project-tag">Maternal Health</span>
+        <h3>Maternal Health Project — Limbe Subdivision</h3>
+        <p>In partnership with Fako America Youths (FAY), CHA Cameroon implemented a targeted maternal health programme for underprivileged pregnant women in Limbe, South West Region. Services included antenatal care packages, doctor visits, laboratory tests, health talks, and follow-up support.</p>
+        <div class="project-meta">&#128336; Completed &middot; Fako Division, South West Region</div>
+      </div>
+    </div>
+    <div class="project-card">
+      <img src="images/maternal_health_team.jpg" alt="CHA team during the Maternal Health Project outreach" />
+      <div class="project-body">
+        <span class="project-tag">Community Outreach</span>
+        <h3>Maternal Health Field Outreach — Antenatal Campaign</h3>
+        <p>CHA and FAY teams conducted structured field outreach at community health facilities, engaging healthcare workers and pregnant women in antenatal education. The campaign was driven by Cameroon's MMR of 529 per 100,000 live births — because every woman deserves a healthy pregnancy.</p>
+        <div class="project-meta">&#128336; Completed &middot; Limbe, Fako Division</div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="team" id="team">
+  <div class="section-header">
+    <span class="section-tag">Leadership</span>
+    <h2>Our Team</h2>
+    <div class="divider"></div>
+    <p>Meet the dedicated professionals driving CHA Cameroon's mission of health equity and community empowerment.</p>
+  </div>
+  <div class="team-grid">
+    <div class="team-card">
+      <img class="team-photo" src="images/wilfred_profile.jpg" alt="Dr. Wilfred Azua Ekokobe" />
+      <h3>Dr. Wilfred Azua Ekokobe</h3>
+      <div class="role">President, CHA Cameroon</div>
+      <p>MD, MPH, PGCert Public Health. Atlantic Fellow for Health Equity (GWU). Regional Program Manager, International Medical Corps — Northwest Cameroon.</p>
+    </div>
+  </div>
+</section>
+<section class="contact" id="contact">
+  <h2>Get In Touch</h2>
+  <p>Reach out to learn more about our programs or explore partnership opportunities.</p>
+  <div class="contact-info">
+    <div class="contact-item"><strong>Email</strong>CHAcameroon@mail.com</div>
+    <div class="contact-item"><strong>Phone</strong>+237 653 784 013</div>
+    <div class="contact-item"><strong>Social</strong>@kwatastylemedicine</div>
+    <div class="contact-item"><strong>Location</strong>Cameroon</div>
+  </div>
+  <a href="mailto:CHAcameroon@mail.com" class="btn-primary">Send Us an Email</a>
+</section>
+<footer><p>&copy; 2026 <span>Community Health Association Cameroon</span>. All rights reserved.</p></footer>
+</body>
+</html>
